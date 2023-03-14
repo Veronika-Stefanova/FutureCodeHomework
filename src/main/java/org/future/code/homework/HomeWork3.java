@@ -43,15 +43,36 @@ public class  HomeWork3 {
      *          для ExportException вернуть строку "ExportException"
      */
 
-    public static void raiseException(Integer exceptionId) throws Exception { // Подсказка: throws Exception в итоге надо поменять на перечисление имен исключений
-        // Напиши свой код тут для задания 1
-        throw new Exception();
-    }
+     public static void raiseException(Integer exceptionId) throws SocketException, ClassNotFoundException, AccessDeniedException, ExportException { // Подсказка: throws Exception в итоге надо поменять на перечисление имен исключений
+        if (exceptionId == 1) {
+            throw new SocketException("SocketException");
+        }
+        if (exceptionId == 2) {
+            throw new ClassNotFoundException("ClassNotFoundException");
+        }
+        if (exceptionId == 3) {
+            throw new AccessDeniedException("AccessDeniedException");
+        }
+        if (exceptionId == 4) {
+            throw new ExportException("ExportException");
+        }
 
     public static String catchException(Integer integer) {
-        // Напиши свой код тут для задания 2
-        return "Exception";
-    }
+       try {
+                HomeWork3.raiseException(exceptionId);
+              if(exceptionId<4){
+                  throw new RuntimeException();
+              }
+            } catch (SocketException e) {
+                System.out.println("SocketException");
+            } catch (ClassNotFoundException e) {
+                System.out.println("ClassNotFoundException");
+            } catch (AccessDeniedException e) {
+                System.out.println("AccessDeniedException");
+            } catch (ExportException e) {
+                System.out.println("ExportException");
+            }
+         }
 
     public static void main(String[] args) {
         testFirstTask();
